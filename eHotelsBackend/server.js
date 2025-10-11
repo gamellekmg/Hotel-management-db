@@ -43,8 +43,6 @@ pool.query("SELECT NOW()", (err, res) => {
 
 
 
-app.use(cors());
-app.use(bodyParser.json());
 
 app.get("/hotelChains", async (req, res) => {
     try {
@@ -408,9 +406,7 @@ app.post("/api/reservations/check-in", async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`✅ Serveur lancé sur http://localhost:${port}`);
-});
+
 
 // Route d'inscription aux employés
 app.post('/signup', async (req, res) => {
