@@ -6,18 +6,20 @@ require("dotenv").config();
 
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;;
 
 const pool = new Pool({
-    user: "postgres.mhpjodxfdqkjmjbbotvm",
-    host: "aws-0-ca-central-1.pooler.supabase.com",
-    database: "postgres",
-    password: "Hotel4$$$gamelle",
-    port: 5432,
-    idleTimeoutMillis: 3000,  // Ferme les connexions inactives après 30 sec
-    connectionTimeoutMillis: 5000,  // Attend 5 sec avant de fermer une connexion
-    max: 100,  // Limite à 100 le nombre maximal de connexions
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+    ssl: { rejectUnauthorized: false }, 
+    idleTimeoutMillis: 3000,
+    connectionTimeoutMillis: 5000,
+    max: 100,
 });
+
 pool.query("SELECT NOW()", (err, res) => {
     if (err) {
         console.error("❌ Problème de connexion à PostgreSQL :", err);
