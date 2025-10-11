@@ -52,7 +52,7 @@
 
                 try {
                     // Envoyer les données au backend
-                    const response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/address", {
+                    const response = await fetch("https://hotel-management-db-hotel-managment.up.railway.app/address", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(addressData)

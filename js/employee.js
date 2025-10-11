@@ -6,7 +6,7 @@ window.onload = async function () {
   const hotelDeleteSelect = document.getElementById("Hotel_id");
   if (hotelDeleteSelect) {
     try {
-      const response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/hotels");
+      const response = await fetch("https://hotel-management-db-hotel-managment.up.railway.app/hotels");
       const hotels = await response.json();
       hotels.forEach(hotel => {
         const option = document.createElement("option");
@@ -25,7 +25,7 @@ window.onload = async function () {
 
   if (hotelAddSelect) {
     try {
-      const response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/hotels");
+      const response = await fetch("https://hotel-management-db-hotel-managment.up.railway.app/hotels");
       const hotels = await response.json();
       hotels.forEach(hotel => {
         const option = document.createElement("option");
@@ -40,7 +40,7 @@ window.onload = async function () {
 
   if (addressSelect) {
     try {
-      const response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/addresses");
+      const response = await fetch("https://hotel-management-db-hotel-managment.up.railway.app/addresses");
       const addresses = await response.json();
       addresses.forEach(addr => {
         const option = document.createElement("option");
@@ -67,7 +67,7 @@ async function deleteHotel() {
   if (!confirmation) return;
 
   try {
-    const response = await fetch(`http://hotel-management-db-hotel-managment.up.railway.app/delete-hotel/${hotelId}`, {
+    const response = await fetch(`https://hotel-management-db-hotel-managment.up.railway.app/delete-hotel/${hotelId}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" }
     });
@@ -97,7 +97,7 @@ async function addEmployee(event) {
   const Address_Id = document.getElementById("addressDisplay").value;
 
   try {
-    const response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/add-employee", {
+    const response = await fetch("https://hotel-management-db-hotel-managment.up.railway.app/add-employee", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ full_name, NAS, Position, Hotel_Id, Address_Id })
@@ -123,7 +123,7 @@ async function signup(event) {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const res = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/signup", {
+  const res = await fetch("https://hotel-management-db-hotel-managment.up.railway.app/signup", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password })
@@ -144,7 +144,7 @@ async function login(event) {
   const password = document.getElementById("password").value;
 
   try {
-    const response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/login", {
+    const response = await fetch("https://hotel-management-db-hotel-managment.up.railway.app/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })

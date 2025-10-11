@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         try {
-            const response = await fetch('http://hotel-management-db-hotel-managment.up.railway.app/api/payments', {
+            const response = await fetch('https://hotel-management-db-hotel-managment.up.railway.app/api/payments', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Fonction pour charger les détails de la location
 async function loadRentDetails(rentId) {
     try {
-        const response = await fetch(`http://hotel-management-db-hotel-managment.up.railway.app/api/rents/${rentId}`);
+        const response = await fetch(`https://hotel-management-db-hotel-managment.up.railway.app/api/rents/${rentId}`);
         const rentData = await response.json();
         
         if (!response.ok) {
