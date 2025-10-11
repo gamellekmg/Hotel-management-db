@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Charger les chaînes d'hôtels depuis le backend
 async function chargerChainesHotels() {
     try {
-        const response = await fetch("http://localhost:3000/hotelChains");
+        const response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/hotelChains");
         const hotelChains = await response.json();
 
         let select = document.getElementById("hotelChain");
@@ -70,7 +70,7 @@ document.getElementById("hotelChain").addEventListener("change", async (e) => {
     }
 
     try {
-        const url = `http://localhost:3000/hotels?hotelchain_id=${hotelchain_id}`;
+        const url = `http://hotel-management-db-hotel-managment.up.railway.app/hotels?hotelchain_id=${hotelchain_id}`;
         console.log("📡 Envoi de requête vers:", url); // LOG DEBUG
 
         const response = await fetch(url);
@@ -105,7 +105,7 @@ document.getElementById("hotel").addEventListener("change", async (e) => {
     }
 
     try {
-        const url = `http://localhost:3000/rooms?hotel_id=${hotel_id}`;
+        const url = `http://hotel-management-db-hotel-managment.up.railway.app/rooms?hotel_id=${hotel_id}`;
         console.log("📡 Envoi de requête vers :", url);
 
         const response = await fetch(url);
@@ -138,7 +138,7 @@ document.getElementById("confirmClient").addEventListener("click", async (e) => 
     };
 
     try {
-        let response = await fetch("http://localhost:3000/registerClient", {
+        let response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/registerClient", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(clientData)
@@ -180,7 +180,7 @@ document.getElementById("confirmReservation").addEventListener("click", async (e
     };
 
     try {
-        let response = await fetch("http://localhost:3000/reservation", {
+        let response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/reservation", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(reservationData)

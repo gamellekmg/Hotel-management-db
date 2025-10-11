@@ -7,6 +7,15 @@ require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3000;
+const cors = require("cors");
+
+
+app.use(cors({
+    origin: 'https://gamellekmg.github.io',
+    credentials: true
+}));
+
+app.use(bodyParser.json());
 
 app.listen(port, '0.0.0.0', () => {
     console.log(` Serveur lancé sur le port ${port}`);

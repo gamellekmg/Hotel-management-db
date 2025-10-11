@@ -87,7 +87,7 @@
 
         async function chargerChainesHoteliers() {
             try {
-                const response = await fetch("http://localhost:3000/hotelChains");
+                const response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/hotelChains");
                 const chains = await response.json();
                 const select = document.getElementById("hotelChain");
 
@@ -104,7 +104,7 @@
 
         async function chargerHotels(hotelchain_id) {
             try {
-                const response = await fetch(`http://localhost:3000/hotels?hotelchain_id=${hotelchain_id}`);
+                const response = await fetch(`http://hotel-management-db-hotel-managment.up.railway.app/hotels?hotelchain_id=${hotelchain_id}`);
                 const hotels = await response.json();
                 const select = document.getElementById("hotel");
                 select.innerHTML = "<option value=''>Choisir un hôtel</option>";
@@ -122,7 +122,7 @@
 
         async function chargerFiltresChambres() {
             try {
-                const response = await fetch("http://localhost:3000/roomFilters");
+                const response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/roomFilters");
                 const filters = await response.json();
 
                 remplirFiltre("appliances", filters.map(f => f.appliances));
@@ -173,7 +173,7 @@
 
         async function chargerChambresDisponibles(hotel_id, appliances = "", capacity = "", extras = "", existing_damage = "") {
             try {
-                const url = `http://localhost:3000/availableRooms?hotel_id=${hotel_id}&appliances=${encodeURIComponent(appliances)}&capacity=${capacity}&extras=${encodeURIComponent(extras)}&existing_damage=${encodeURIComponent(existing_damage)}`;
+                const url = `http://hotel-management-db-hotel-managment.up.railway.app/availableRooms?hotel_id=${hotel_id}&appliances=${encodeURIComponent(appliances)}&capacity=${capacity}&extras=${encodeURIComponent(extras)}&existing_damage=${encodeURIComponent(existing_damage)}`;
                 const response = await fetch(url);
                 const rooms = await response.json();
 
@@ -209,7 +209,7 @@
             const reservationData = { client_id, room_id, reservation_date };
 
             try {
-                const response = await fetch("http://localhost:3000/reservation", {
+                const response = await fetch("http://hotel-management-db-hotel-managment.up.railway.app/reservation", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(reservationData)

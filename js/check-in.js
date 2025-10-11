@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const reservationId = document.getElementById('reservationId').value;
 
         try {
-            const response = await fetch('http://localhost:3000/api/reservations/check-in', {
+            const response = await fetch('http://hotel-management-db-hotel-managment.up.railway.app/api/reservations/check-in', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             // 1. Créer l'adresse
-            const addressResponse = await fetch('http://localhost:3000/address', {
+            const addressResponse = await fetch('http://hotel-management-db-hotel-managment.up.railway.app/address', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // 2. Créer le client
-            const clientResponse = await fetch('http://localhost:3000/client', {
+            const clientResponse = await fetch('http://hotel-management-db-hotel-managment.up.railway.app/client', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // 3. Créer la réservation
-            const reservationResponse = await fetch('http://localhost:3000/reservation', {
+            const reservationResponse = await fetch('http://hotel-management-db-hotel-managment.up.railway.app/reservation', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // 4. Transformer la réservation en location
-            const checkInResponse = await fetch('http://localhost:3000/api/reservations/check-in', {
+            const checkInResponse = await fetch('http://hotel-management-db-hotel-managment.up.railway.app/api/reservations/check-in', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Fonction pour charger les hôtels
 async function loadHotels() {
     try {
-        const response = await fetch('http://localhost:3000/hotels');
+        const response = await fetch('http://hotel-management-db-hotel-managment.up.railway.app/hotels');
         const hotels = await response.json();
 
         const hotelSelect = document.getElementById('hotelId');
@@ -165,7 +165,7 @@ async function loadHotels() {
 // Fonction pour charger les filtres de chambre
 async function loadRoomFilters() {
     try {
-        const response = await fetch('http://localhost:3000/roomFilters');
+        const response = await fetch('http://hotel-management-db-hotel-managment.up.railway.app/roomFilters');
         const filters = await response.json();
 
         // Remplir les options pour chaque filtre
@@ -201,7 +201,7 @@ async function loadAvailableRooms() {
 
     try {
         const queryParams = new URLSearchParams(filters).toString();
-        const response = await fetch(`http://localhost:3000/availableRooms?${queryParams}`);
+        const response = await fetch(`http://hotel-management-db-hotel-managment.up.railway.app/availableRooms?${queryParams}`);
         const rooms = await response.json();
 
         const roomSelect = document.getElementById('roomId');

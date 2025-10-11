@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "Cozy retreat": "cozy retreat"
    };
 
-   fetch("http://localhost:3000/hotelChains")
+   fetch("http://hotel-management-db-hotel-managment.up.railway.app/hotelChains")
       .then(res => res.json())
       .then(data => {
          if (data.length === 0) return;
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
 
       // 🏨 Display Hotel List
-      fetch(`http://localhost:3000/hotels?hotelchain_id=${chain.hotelchain_id}`)
+      fetch(`http://hotel-management-db-hotel-managment.up.railway.app/hotels?hotelchain_id=${chain.hotelchain_id}`)
    .then(res => res.json())
    .then(hotels => {
       hotelListBox.innerHTML = `
